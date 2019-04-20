@@ -1,0 +1,25 @@
+[{
+    "name":"production",
+    "type": "sqlite",
+    "host": "localhost",
+    "port": 5432,
+    "database": "./db/production.db",
+
+    "synchronize": false,
+    "dropSchema":false,
+
+    "logging": true,
+    "entities": ["dist/typeorm/entity/**/*.js"]
+},{
+    "name":"testing",
+    "type": "sqlite",
+    "host": "localhost",
+    "port": 5432,
+    "database": "./db/testing.db",
+    
+    "synchronize":  true,
+    "dropSchema":   true,
+    
+    "logging": true,
+    "entities": ["src/typeorm/entity/**/*.ts"]
+}]

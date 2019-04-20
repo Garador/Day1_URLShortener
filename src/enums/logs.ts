@@ -1,0 +1,30 @@
+import {API_PATHS} from './path'
+API_PATHS.AUTH_LOGIN
+
+export enum ACTION_NAMES {
+    LOG_IN = "LOG_IN",
+    CREATE_ACCOUNT = "CREATE_ACCOUNT",
+    SHORTEN_REQUEST = "SHORTEN_REQUEST",
+    LIST_USERS = "LIST_USERS",
+    REDIRECT_REQUEST = "REDIRECT_REQUEST",
+    UNKNOWN = "UNKNOWN",
+} 
+
+export const LOG_EVENT_TYPES:{
+    [index:string]:{
+        [index:string]:string
+    }
+} = {
+    "POST" : {
+        [API_PATHS.AUTH_LOGIN]:ACTION_NAMES.LOG_IN,
+        [API_PATHS.AUTH_USER]:ACTION_NAMES.CREATE_ACCOUNT,
+        [API_PATHS.SHORTEN_REQUEST]:ACTION_NAMES.SHORTEN_REQUEST
+    },
+    "GET":{
+        [API_PATHS.AUTH_USER]:ACTION_NAMES.LIST_USERS
+    },
+    "SPECIAL":{
+        "*":ACTION_NAMES.REDIRECT_REQUEST,
+        "UNKNOWN":ACTION_NAMES.UNKNOWN
+    }
+}
