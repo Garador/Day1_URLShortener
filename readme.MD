@@ -1,21 +1,24 @@
-###Simple Redirecting / URL Shortening Server
-**What's this?** It's a simple REST server to shorten and redirect users to certain URLS depending on the main URL provided.
+<h1>Simple Redirecting / URL Shortening Server</h1>
+
+**What's this?**
+It's a simple REST server to shorten and redirect users to certain URLS depending on the main URL provided.
 This server started as a side project of "1 project a day", where I'll try to build a project each day, from design to upload.
 ---
 
-###Environment Variables
-**NODE_ENV** If ser to `PRODUCTION`, will enable the system to use production configuration. Otherwise, it will use development configuration.
+<h3>Environment Variables</h3>
+<b>NODE_ENV</b> If set to `PRODUCTION`, will enable the system to use production configuration. Otherwise, it will use development configuration.
 
-**HOST** Is the URL that will be appended to the code for generating the shortened URL. If not specified, will default to HOST.
+<b>HOST</b> Is the URL that will be appended to the code for generating the shortened URL. If not specified, will default to HOST.
 
-**Port** Is the port that will be defined to listen to the server requests. If not specified, will default to `3000`.
+<b>Port</b> Is the port that will be defined to listen to the server requests. If not specified, will default to `3000`.
 
-**JWTKey** Is the key that will be used to sign the JWTs. If not specified, will default to `l1k2j3j12n312l3b123jl`.
+<b>JWTKey</b> Is the key that will be used to sign the JWTs. If not specified, will default to `l1k2j3j12n312l3b123jl`.
 
 ----
 
-###Main Functions
-####View registered users
+<h3>Main Functions</h3>
+<h4>View registered users</h4>
+
 **notes** Only the first user (aapointed as the admin) can see the user records.
 
 **method** `GET /auth/user?skip=$skip$&limit=$limit$`
@@ -24,7 +27,7 @@ This server started as a side project of "1 project a day", where I'll try to bu
 `CODE:200 | data:JSON {data:[PROFILE]}`
 `CODE:500 | data: JSON {error:STRING}`
 
-####Create an user
+<h4>Create an user</h4>
 
 **method** `POST /auth/user`
 
@@ -34,7 +37,7 @@ This server started as a side project of "1 project a day", where I'll try to bu
 `CODE:200 | data:null`
 `CODE:40*|500 | data: JSON {error:STRING}`
 
-####Sign In
+<h4>Sign In</h4>
 
 **method** `POST /auth/login`
 
@@ -44,7 +47,7 @@ This server started as a side project of "1 project a day", where I'll try to bu
 `CODE: 200 | data: JSON {jwt:String}`
 `CODE: 40*|500 | data: JSON {error:STRING}`
 
-####Shortening Request
+<h4>Shortening Request/<h4>
 **NOTE** (Requires log-in + Authorization header with JWT provided on Log-in)
 
 **method** `POST /reqShort?url=$URL$`
@@ -55,7 +58,7 @@ This server started as a side project of "1 project a day", where I'll try to bu
 `CODE: 200 | data: JSON {url:String}`
 `CODE: 40*|500 | data: JSON {error:String}`
 
-####Shortening Redirect
+<h4>Shortening Redirect</h4>
 **NOTE** (Requires log-in + Authorization header with JWT provided on Log-in)
 
 **method** `GET /$REDIRECT_TOCE$ (Via Browser)`
