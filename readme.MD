@@ -2,7 +2,6 @@
 
 **What's this?**
 It's a simple REST server to shorten and redirect users to certain URLS depending on the main URL provided.
-This server started as a side project of "1 project a day", where I'll try to build a project each day, from design to upload.
 ---
 
 <h3>Environment Variables</h3>
